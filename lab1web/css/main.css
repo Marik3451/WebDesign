@@ -1,0 +1,15 @@
+body {
+	font: Comic Sans MS;
+	background-color: #7fff00;
+	color: brown;
+	font-size: 22px;
+}
+img {
+	border: 3;
+	float: left;
+	margin: 10px 10px 10px 10px;
+}
+
+table, td {
+	border: 3px solid yellow;
+}
