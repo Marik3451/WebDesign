@@ -16,6 +16,28 @@ Lab5
 Lab6
 ![image](https://github.com/Marik3451/WebDesign/assets/106335954/b4753805-8c56-4b1a-ab63-67499ba4ea0e)
 
+Lab7
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/f90cf38d-5130-48cf-8019-286a042c603b)
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/b15e384b-7409-47b3-ba57-46b10403b23e)
+
+Lab 8
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/6e5cc189-f9f6-4753-a87f-329bcd311317)
+
+Lab 9
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/4a1b4ee4-6d34-4589-91ac-3868fc7fcd08)
+
+Lab 10
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/7ecc1547-803c-4aea-a48c-cf0728b5a528)
+
+Lab 11
+![image](https://github.com/Marik3451/WebDesign/assets/106335954/b7cb238c-4dee-42bb-95a4-1771dd99a300)
+
+
+
+
+
+
+
 
 
 
