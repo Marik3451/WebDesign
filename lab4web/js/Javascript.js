@@ -165,3 +165,30 @@ function changeTextStyles() {
     document.body.style.color = 'green';
     document.body.style.fontFamily = 'Courier New, monospace';
 }
+
+$(document).ready(function() {
+    // Open lightbox on image click
+    $('.gallery-img').on('click', function() {
+        var imgSrc = $(this).attr('src');
+        openLightbox(imgSrc);
+    });
+
+    // Close lightbox on background click
+    $('#lightbox').on('click', function() {
+        closeLightbox();
+    });
+});
+
+function openLightbox(imgSrc) {
+    $('#lightbox').html('<img src="' + imgSrc + '" alt="Enlarged Image">');
+    $('#lightbox').fadeIn();
+}
+
+function closeLightbox() {
+    $('#lightbox').fadeOut();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none'; // або можна використати 'flex', якщо вам потрібно відобразити його
+});
