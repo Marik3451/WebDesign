@@ -109,53 +109,117 @@
                 </form>
             </div>
         </div>
+    </div>
 
-    </div>
     <div class="container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/iECh0UQiosc?si=95JXjdmrZGMKYFMh"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2veggtBMgwE?si=hqziYzFPT7QT27Ey"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-    </div>
-    <div class="container">
-        <div>
-            <p>Степан Гіга & Леся Нікітюк - Цей сон</p><audio controls title="Степан Гіга - Цей сон">
-                <source src="audio/lesja_nikitjuk__stepan_giga_-_cej_son_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Степан Гіга - Цей сон</p>
-            <audio controls>
-                <source src="audio/stepan_giga_-_cej_son_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Степан Гіга - Друзі мої</p>
-            <audio controls>
-                <source src="audio/stepan_giga_-_druzi_mo_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Степан Гіга - Я поклав своє кохання на вівтар</p>
-            <audio controls>
-                <source src="audio/stepan_giga_-_ja_poklav_svo_kohannja_na_vivtar_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Степан Гіга - Яворина</p>
-            <audio controls>
-                <source src="audio/stepan_giga_-_javorina_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Степан Гіга - Третій тост</p>
-            <audio controls>
-                <source src="audio/stepan_giga_-_tretij_tost_(z3.fm).mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="container pt-4 pr-2 pl-2 pb-3 bg-white text-white position-relative"
+                    style="background: linear-gradient(blue,black)">
+                    <div style="text-align: center;">
+                        <span><b>
+                                <h3>Арендувати авто</h3>
+                            </b> </span>
+                    </div>
+                    <span>(Поля відмічені знаком *, обов'язкові для заповненення)</span> <br>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="Firm">Компанія:</label>
+                                <select id="Firm" name="Firm" onchange="updateModels()">
+                                    <option value="Volkswagen">Volkswagen</option>
+                                    <option value="Audi">Audi</option>
+                                    <option value="BWM">BWM</option>
+                                    <option value="Mercedes">Mercedes</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="model">Модель:</label>
+                                <select id="model" name="model">
+                                    <option value="Tiguan">Tiguan</option>
+                                    <option value="Golf 7">Golf 7</option>
+                                    <option value="Passat B8">Passat B8</option>
+                                    <option value="Jetta">Jetta</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <td>
+                            <input type="radio" name="reply_radio" checked>Повноприводна <br>
+                            <input type="radio" name="reply_radio"> Передній привід<br>
+                        </td>
+                        <tr>
+                            <td>З ціною,не вищою за*.
+                                <input type="text" size=8, name="cost" placeholder="Введіть суму">
+                                <select id="cost" name="cost">
+                                    <option value="Euro">Євро</option>
+                                    <option value="Hrivnia">Гривня</option>
+                                    <option value="Dollar">Долар</option>
+                                    <option value="Yuani">Юані</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align: center;">
+                        <b>
+                            <span>Додадкові вимоги:</span>
+                        </b>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="function" value="PidigrSidinia">Підгрів сидінь
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="function" value="TwoSezonClimatronik">Двухзонний
+                                кліматронік
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="function" value="Luk">Люк
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="function" value="SalonAlCantara">Салон Аль-Кантара
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="function" value="Electropaket">Електропакет(вікна,доводчики
+                                дверей
+                                і тд
+                                тп)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Моя електронна адреса</span>
+                                <input type="text" name="function" placeholder="Введіть email">
+                            </td>
+                            <br>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="margin-top: 10px">
+                                    <button type="submit" class="btn btn-primary"
+                                        onclick="redirectToHomePage()">Відправити</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <img src="images/Panamera.jpeg" alt="Panamera" height="450px" class="img-thumbnail">
+            </div>
         </div>
-    </div>
-</body>
 
+</body>
 <footer style="margin-top: 50px;">
     <div class="position-absolute start-50 translate-middle">
         <p>© 2023 Arentoc - аренда авто.Підтримка і SEO-просування.Всі права захищені.</p>
