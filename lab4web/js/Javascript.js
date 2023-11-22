@@ -142,3 +142,26 @@ function getFormValues() {
     // Виводимо JSON-рядок у консоль
     console.log('JSON-дані:', jsonData);
 }
+
+function changeBackground() {
+    document.body.style.background = 'lightblue';
+}
+
+function setBorders() {
+    document.body.style.border = '2px solid black';
+    document.body.style.outline = '2px solid red';
+}
+
+function changeListStyle() {
+    document.getElementById("u11").style.listStyleType = "katakana";
+}
+
+function setMarginsAndPadding() {
+    document.body.style.margin = '20px';
+    document.body.style.padding = '10px';
+}
+
+function changeTextStyles() {
+    document.body.style.color = 'green';
+    document.body.style.fontFamily = 'Courier New, monospace';
+}
