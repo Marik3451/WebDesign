@@ -111,6 +111,16 @@
             </div>
         </div>
     </div>
+    <div class="container" style="margin-bottom: 10px;">
+        <div>
+            <button onclick="changeBackground()">Change Background</button>
+            <button onclick="setBorders()">Set Borders</button>
+            <button onclick="changeListStyle()">Change List Style</button>
+            <button onclick="setMarginsAndPadding()">Set Margins and Padding</button>
+            <button onclick="changeTextStyles()">Change Text Styles</button>
+
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -168,50 +178,34 @@
                         </b>
                     </div>
                     <table>
-                        <tr>
-                            <td>
+                        <ul id="u11">
+                            <li>
                                 <input type="checkbox" name="function" value="PidigrSidinia">Підгрів сидінь
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </li>
+                            <li>
                                 <input type="checkbox" name="function" value="TwoSezonClimatronik">Двухзонний
                                 кліматронік
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </li>
+                            <li>
                                 <input type="checkbox" name="function" value="Luk">Люк
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </li>
+                            <li>
                                 <input type="checkbox" name="function" value="SalonAlCantara">Салон Аль-Кантара
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </li>
+                            <li>
                                 <input type="checkbox" name="function" value="Electropaket">Електропакет(вікна,доводчики
                                 дверей
                                 і тд
                                 тп)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Моя електронна адреса</span>
-                                <input type="text" name="function" placeholder="Введіть email">
-                            </td>
-                            <br>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div style="margin-top: 10px">
-                                    <button id="submitBtn" class="btn btn-primary"
-                                        onclick="getFormValues(),redirectToHomePage()">Відправити</button>
-                                </div>
-                            </td>
-                        </tr>
+                            </li>
+                        </ul>
+                        <span>Моя електронна адреса</span>
+                        <input type="text" name="function" placeholder="Введіть email">
+
+                        <div style="margin-top: 10px">
+                            <button id="submitBtn" class="btn btn-primary"
+                                onclick="getFormValues(),redirectToHomePage()">Відправити</button>
+                        </div>
                     </table>
                 </div>
             </div>
