@@ -84,3 +84,8 @@ function addOption(selectElement, value, text) {
     option.text = text;
     selectElement.add(option);
 }
+
+function redirectToHomePage() {
+    // Використовуйте window.location.href для переадресації на головну сторінку
+    window.location.href = 'index.html';
+}
