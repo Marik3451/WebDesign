@@ -166,15 +166,25 @@ function changeTextStyles() {
     document.body.style.fontFamily = 'Courier New, monospace';
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
+    var lightbox = $('#lightbox');
+    lightbox.css('display', 'none'); // or 'flex' if you need to display it
+
+    // Add your event listener here if needed
+    lightbox.on('click', function() {
+        // Your click event handling code
+    });
+});
+
+$(document).ready(function () {
     // Open lightbox on image click
-    $('.gallery-img').on('click', function() {
+    $('.gallery-img').on('click', function () {
         var imgSrc = $(this).attr('src');
         openLightbox(imgSrc);
     });
 
     // Close lightbox on background click
-    $('#lightbox').on('click', function() {
+    $('#lightbox').on('click', function () {
         closeLightbox();
     });
 });
@@ -188,7 +198,4 @@ function closeLightbox() {
     $('#lightbox').fadeOut();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var lightbox = document.getElementById('lightbox');
-    lightbox.style.display = 'none'; // або можна використати 'flex', якщо вам потрібно відобразити його
-});
+
