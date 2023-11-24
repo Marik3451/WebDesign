@@ -127,12 +127,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5">
-                <div class="container pt-4 pr-2 pl-2 pb-3 bg-white text-white position-relative"
+                <div class="container pt-2 pr-2 pl-2 pb-3 bg-white text-white position-relative"
                     style="background: linear-gradient(blue,black)">
                     <div style="text-align: center;">
                         <span><b>
                                 <h3>Арендувати авто</h3>
-                            </b> </span>
+                            </b></span>
                     </div>
                     <span>(Поля відмічені знаком *, обов'язкові для заповненення)</span> <br>
                     <table>
@@ -164,7 +164,7 @@
                         </td>
                         <tr>
                             <td>З ціною,не вищою за*.
-                                <input type="text" size=8, id="costMoney" placeholder="Введіть суму">
+                                <input type="texts" size=8, id="costMoney" placeholder="Введіть суму">
                                 <select id="cost" name="cost">
                                     <option value="Euro">Євро</option>
                                     <option value="Hrivnia">Гривня</option>
@@ -201,9 +201,8 @@
                                 тп)
                             </li>
                         </ul>
-                        <span>Моя електронна адреса</span>
-                        <input type="text" name="function" placeholder="Введіть email">
-
+                        <span style="margin-right: 10px;">Моя електронна адреса</span>
+                        <input type="texts" name="function" placeholder="Введіть email">
                         <div style="margin-top: 20px">
                             <button id="submitBtn" class="btn btn-primary"
                                 onclick="getFormValues(),redirectToHomePage()">Відправити</button>
@@ -212,7 +211,7 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <img src="images/Panamera.jpeg" alt="Panamera" height="450px" class="img-thumbnail">
+                <img src="images/Panamera.jpeg" alt="Panamera" height="500px" class="img-thumbnail">
             </div>
         </div>
 

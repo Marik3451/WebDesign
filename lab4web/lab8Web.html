@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>lab8web</title>
     <style>
         table {
@@ -27,18 +29,111 @@
 </head>
 
 <body>
-   
-        <script>
-             document.write('<table border="1">');
-             document.write('<tr><th>x</th><th>y</th><th>a[x,y,z,b]</th><th>b[x,y,z]</th></tr>');
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid p-1 bg-black text-white text-left">
+                    <div class="col-md-8">
+                        <a class="nav-link" style=color:white href="index.html">
+                            <h1 style="color: orange;">Aren<span style="color: white;">toc</span></h1>
+                        </a>
+                    </div>
+                    <!-- <div class="col-md-0"></div> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class="col-md-2"></div>
+                        <div class="tabs">
+                            <button style="background: orange;" class="rounded"
+                                onclick="openLoginModal()">Увійти</button>
+                            <button style="background: orange;" class="rounded"
+                                onclick="openRegistrationModal()">Реєстрація</button>
+                            <button style="background: orange;" class="rounded" onclick="openQuestionModal()">Задати
+                                питання</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+                <h2>Авторизація</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="LoginName">Логін</label>
+                        <input type="text" class="form-control" id="LoginName" placeholder="Введіть логін">
+                    </div>
+                    <div class="form-group">
+                        <label for="LoginPassword">Пароль</label>
+                        <input type="text" class="form-control" id="LoginPassword" placeholder="Введіть пароль">
+                    </div>
+                    <div style="margin-top: 10px">
+                        <button type="submit" class="btn btn-primary">Увійти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="registrationModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeRegistrationModal()">&times;</span>
+                <h2>Реєстрація</h2>
+                <form action="#" method="post">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="RegName">Логін</label>
+                            <input type="text" class="form-control" id="RegName" placeholder="Введіть логін">
+                        </div>
+                        <div class="form-group">
+                            <label for="RegPassword">Пароль</label>
+                            <input type="pas" class="form-control" id="RegPassword" placeholder="Введіть пароль">
+                        </div>
+                        <div style="margin-top: 10px">
+                            <button type="submit" class="btn btn-primary">Зареєструватись</button>
+                        </div>
+                    </form>
+                </form>
+            </div>
+        </div>
+
+        <div id="questionModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeQuestionModal()">&times;</span>
+                <h2>Задати питання</h2>
+                <!-- Вставити форму для задання питань тут -->
+                <form id="questionForm">
+                    <div class="form-group">
+                        <label for="QuestionText">Ваше запитання</label>
+                        <textarea type="text" class="form-control" id="QuestionText"
+                            placeholder="Введіть свій текст тут" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="QuestionName">Ваше запитання</label>
+                        <input type="text" class="form-control" id="QuestionName" placeholder="Введіть свій текст тут">
+                    </div>
+                    <div style="margin-top: 10px">
+                        <button type="submit" class="btn btn-primary">Надіслати питання</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+      <div class="container">
+            <div class="row">
+                    <script>
+             document.write('<table class="table table-condensed table-hover table-striped table-sm" >');
+         
             // Функція для обчислення b[x, y, z]
             function calculateB(x, y, z) {
-                return x * ((y + Math.atan(Math.pow(Math.abs(Math.pow(x, 2) + z), 2))) / (2 + Math.pow(Math.sin(x), 2) * Math.pow(y, 3)) + Math.exp(-(x + z / y)));
+                return x * y + z;
             }
 
             // Функція для обчислення a[x, y, z, b]
             function calculateA(x, y, z, b) {
-                return Math.pow((1 + y), 2) * (Math.pow(Math.abs(x + y), 0.3) / Math.pow(b, 2) + z) / (1 + Math.exp(-(x - z))) + Math.abs(Math.pow(y, 0.43));
+                return x * y + b / z;
             }
 
             // Параметри
@@ -49,23 +144,45 @@
             var ye = 2;
             var ytab = 0.2;
             var z = 1.32;
-
+            var max = 0;
+            
             // Створення таблиці
+            document.write('<tr><td></td><th>y</th></tr><tr><th>x</th>');
+           
+           for (var y = ys; y <= ye; y += ytab) {
+             document.write('<th>'+y.toFixed(2)+'</th>');
+              }
+              
+             
+            document.write('</tr>');
             for (var x = xs; x <= xe; x += xtab) {
+            
+                document.write('<tr><th>'+x.toFixed(2)+'</th>');
                 for (var y = ys; y <= ye; y += ytab) {
                     var b = calculateB(x, y, z);
                     var a = calculateA(x, y, z, b);
+                    
+                    if(a > max){
+                    max = a;
+                    }
 
-                    document.write('<tr>');
-                    document.write('<td>' + x.toFixed(2) + '</td>');
-                    document.write('<td>' + y.toFixed(2) + '</td>');
-                    document.write('<td>' + b.toFixed(2) + '</td>');
-                    document.write('<td>' + a.toFixed(2) + '</td>');
-                    document.write('</tr>');
+                    if (a === max)
+                    {
+                    document.write('<td class="table-success">'+a.toFixed(2)+'</td>');
+                    }
+                    else
+                    {
+                    document.write('<td>'+a.toFixed(2)+'</td>');
+                    }
+                    //document.write('<td>'+ a.toFixed(2) + '</td>');
+                   
                 }
+                 document.write('</tr>');
             }
-        </script>
-
+        </script>           
+            </div>
+        </div>
+     
 </body>
 
 </html>
