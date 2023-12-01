@@ -108,18 +108,18 @@ function getFormValues() {
     var costValue = document.getElementById("cost").value;
 
     var displayRadioValue = (fullDriveChecked) ? 'Повний привід' : 'Передній привід';
-    // Виводимо значення у консоль для перевірки (можна замінити на інші дії)
-    console.log('Компанія:', firmValue);
-    console.log('Модель:', modelValue);
-    console.log('Тип приводу:', displayRadioValue);
-    console.log('Валюта:', costValue);
-    console.log('Ціна:', costMoneyValue);
-    console.log('Підгрів сидінь:', pidigrSidiniaChecked);
-    console.log('Двухзонний кліматронік:', twoSezonClimatronikChecked);
-    console.log('Люк:', lukChecked);
-    console.log('Салон Аль-Кантара:', salonAlCantaraChecked);
-    console.log('Електропакет:', electropaketChecked);
-    console.log('Email:', emailValue);
+   
+    alert('Компанія: ' + firmValue +
+    '\nМодель: ' + modelValue +
+    '\nТип приводу: ' + displayRadioValue +
+    '\nВалюта: ' + costValue +
+    '\nЦіна: ' + costMoneyValue +
+    '\nПідгрів сидінь: ' + pidigrSidiniaChecked +
+    '\nДвухзонний кліматронік: ' + twoSezonClimatronikChecked +
+    '\nЛюк: ' + lukChecked +
+    '\nСалон Аль-Кантара: ' + salonAlCantaraChecked +
+    '\nЕлектропакет: ' + electropaketChecked +
+    '\nEmail: ' + emailValue);
 
     // Створюємо об'єкт для збереження значень
     var formData = {
