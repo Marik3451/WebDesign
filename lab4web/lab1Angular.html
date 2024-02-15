@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arentoc</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/Logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://kit.fontawesome.com/2443cd82de.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="angularjs-1.6.9-dist/js/angular.min.js"></script>
+    <link rel="stylesheet" href="css/w3.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/Javascript.js"></script>
+    <script src="js/javascriptAngular.js"></script>
+</head>
+<div class="container">
+    <div class="row">
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid p-1 bg-black text-white text-left">
+                <div class="col-md-2">
+                    <a class="nav-link" style=color:white href="index.html">
+                        <h1 style="color: orange;">Aren<span style="color: white;">toc</span></h1>
+                    </a>
+                </div>
+                <!-- <div class="col-md-0"></div> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="#Table">Топ арендованих машин</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="#SelectAuto">Вибір авто</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="#Gallery">Галерея</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="#NewCar">Новинки</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="VideoAudio.html">Відео та Аудіо</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style=color:white href="#Contact">Контакт</a>
+                        </li>
+                    </ul>
+                    <div class="col-md-1"></div>
+                    <div class="tabs">
+                        <button style="background: orange;" class="rounded" onclick="openLoginModal()">Увійти</button>
+                        <button style="background: orange;" class="rounded"
+                            onclick="openRegistrationModal()">Реєстрація</button>
+                        <button style="background: orange;" class="rounded" onclick="openQuestionModal()">Задати
+                            питання</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Авторизація</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="LoginName">Логін</label>
+                    <input type="text" class="form-control" id="LoginName" placeholder="Введіть логін">
+                </div>
+                <div class="form-group">
+                    <label for="LoginPassword">Пароль</label>
+                    <input type="text" class="form-control" id="LoginPassword" placeholder="Введіть пароль">
+                </div>
+                <div style="margin-top: 10px">
+                    <button type="submit" class="btn btn-primary">Увійти</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeRegistrationModal()">&times;</span>
+            <h2>Реєстрація</h2>
+            <form action="#" method="post">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="RegName">Логін</label>
+                        <input type="text" class="form-control" id="RegName" placeholder="Введіть логін">
+                    </div>
+                    <div class="form-group">
+                        <label for="RegPassword">Пароль</label>
+                        <input type="pas" class="form-control" id="RegPassword" placeholder="Введіть пароль">
+                    </div>
+                    <div style="margin-top: 10px">
+                        <button type="submit" class="btn btn-primary">Зареєструватись</button>
+                    </div>
+                </form>
+            </form>
+        </div>
+    </div>
+
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeQuestionModal()">&times;</span>
+            <h2>Задати питання</h2>
+            <!-- Вставити форму для задання питань тут -->
+            <form id="questionForm">
+                <div class="form-group">
+                    <label for="QuestionText">Ваше запитання</label>
+                    <textarea type="text" class="form-control" id="QuestionText" placeholder="Введіть свій текст тут"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="QuestionName">Ваше запитання</label>
+                    <input type="text" class="form-control" id="QuestionName" placeholder="Введіть свій текст тут">
+                </div>
+                <div style="margin-top: 10px">
+                    <button type="submit" class="btn btn-primary">Надіслати питання</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <body ng-app="myApp" ng-controller="userCtrl">
+
+        <div class="w3-container">
+
+            <h3>Cars</h3>
+
+            <table class="w3-table w3-bordered w3-striped">
+                <tr>
+                    <th>Edit</th>
+                    <th ng-click="sortByColumn('name')">Name</th>
+                    <th ng-click="sortByColumn('yearOfRelease')">Year Of Release</th>
+                    <th>Color</th>
+                    <th>Engine capacity</th>
+                    <th>Weight</th>
+                    <th>Car type</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                </tr>
+                <tr ng-repeat="car in cars | orderBy:sortBy">
+                    <td class="align-middle">
+                        <button class="w3-btn w3-ripple" ng-click="editCar(car.id)">&#9998; Edit</button>
+                    </td>
+                    <td class="align-middle">{{ car.name}}</td>
+                    <td class="align-middle">{{ car.yearOfRelease}}</td>
+                    <td class="align-middle">{{ car.color}}</td>
+                    <td class="align-middle">{{ car.engineCapacity}}</td>
+                    <td class="align-middle">{{ car.weight}}</td>
+                    <td class="align-middle">{{ car.carType}}</td>
+                    <td class="align-middle">{{ car.price}}</td>
+                    <td><img src="{{ car.photoURL }}" alt="Car Image" class="img-thumbnail" width="150"></td>
+                </tr>
+            </table>
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-click="editCar('new')">&#9998; Create New Car</button>
+
+            <form ng-hide="hideform">
+                <h3 ng-show="edit">Create New Car:</h3>
+                <h3 ng-hide="edit">Edit Car:</h3>
+                <label>Name:</label>
+                <input class="w3-input w3-border" type="text" ng-model="name" placeholder="Name">
+                <br>
+                <label>YearOfRelease:</label>
+                <input class="w3-input w3-border" type="text" ng-model="yearOfRelease" placeholder="YearOfRelease">
+                <br>
+                <label>Color:</label>
+                <input class="w3-input w3-border" type="text" ng-model="color" placeholder="Color">
+                <br>
+                <label>EngineCapacity:</label>
+                <input class="w3-input w3-border" type="text" ng-model="engineCapacity" placeholder="EngineCapacity">
+                <br>
+                <label>Weight:</label>
+                <input class="w3-input w3-border" type="text" ng-model="weight" placeholder="Weight">
+                <br>
+                <label>CarType:</label>
+                <input class="w3-input w3-border" type="text" ng-model="carType" placeholder="CarType">
+                <br>
+                <label>Price:</label>
+                <input class="w3-input w3-border" type="text" ng-model="price" placeholder="Price">
+                <br>
+                <label>Photo:</label>
+                <input type="file" accept="image/*" onchange="angular.element(this).scope().uploadPhoto(this)">
+                <br>
+                <br>
+                <input class="w3-input w3-border" type="text" ng-model="key"
+                    ng-class="{'ng-valid-key': isValidKey(key)}" placeholder="Key">
+                <br>
+                <!-- <label>Password:</label>
+                <input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
+                <br>
+                <label>Repeat:</label>
+                <input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
+                <br> -->
+                <button class="w3-btn w3-green w3-ripple" ng-click="saveCar()"
+                    ng-disabled="error || incomplete">&#10004; Save Changes</button>
+                <button class="w3-btn w3-green w3-ripple" ng-click="cancel()">&#9938; Cancel</button>
+            </form>
+        </div>
+        <script src="js/javascriptAngular.js"></script>
+</div>
+</body>
+
+</html>
