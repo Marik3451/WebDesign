@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="angularjs-1.6.9-dist/js/angular.min.js"></script>
-    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/w3.css"> 
     <script src="js/angular.min.js"></script>
     <script src="js/Javascript.js"></script>
     <script src="js/javascriptAngular.js"></script>
@@ -128,15 +128,16 @@
     </div>
 </div>
 <div class="container">
-
-    <body ng-app="myApp" ng-controller="userCtrl">
+    
+    <body ng-app="myApp" ng-controller="CarController">
 
         <div class="w3-container">
 
             <h3>Cars</h3>
 
-            <table class="w3-table w3-bordered w3-striped">
-                <tr>
+            <table class="w3-table w3-bordered w3-striped" style="width: 100%">
+                <tr> 
+                    <th>#</th>
                     <th>Edit</th>
                     <th ng-click="sortByColumn('name')">Name</th>
                     <th ng-click="sortByColumn('yearOfRelease')">Year Of Release</th>
@@ -148,63 +149,75 @@
                     <th>Photo</th>
                 </tr>
                 <tr ng-repeat="car in cars | orderBy:sortBy">
+                    <td class="align-middle">{{ $index + 1 }}</td>
                     <td class="align-middle">
-                        <button class="w3-btn w3-ripple" ng-click="editCar(car.id)">&#9998; Edit</button>
+                        <button class="w3-btn w3-ripple" style="border-radius: 10px;" ng-click="editCar(car.id)">&#9998; Edit</button>
                     </td>
                     <td class="align-middle">{{ car.name}}</td>
                     <td class="align-middle">{{ car.yearOfRelease}}</td>
                     <td class="align-middle">{{ car.color}}</td>
                     <td class="align-middle">{{ car.engineCapacity}}</td>
                     <td class="align-middle">{{ car.weight}}</td>
-                    <td class="align-middle">{{ car.carType}}</td>
+                    <td class="align-middle">{{ car.carType | uppercase}}</td>
                     <td class="align-middle">{{ car.price}}</td>
-                    <td><img src="{{ car.photoURL }}" alt="Car Image" class="img-thumbnail" width="150"></td>
+                    <td><img src="{{ car.photoURL }}" alt="Car Image" class="img-thumbnail" width="150"></td>  
                 </tr>
-            </table>
+            </table>            
             <br>
-            <button class="w3-btn w3-green w3-ripple" ng-click="editCar('new')">&#9998; Create New Car</button>
-
-            <form ng-hide="hideform">
-                <h3 ng-show="edit">Create New Car:</h3>
-                <h3 ng-hide="edit">Edit Car:</h3>
-                <label>Name:</label>
-                <input class="w3-input w3-border" type="text" ng-model="name" placeholder="Name">
-                <br>
-                <label>YearOfRelease:</label>
-                <input class="w3-input w3-border" type="text" ng-model="yearOfRelease" placeholder="YearOfRelease">
-                <br>
-                <label>Color:</label>
-                <input class="w3-input w3-border" type="text" ng-model="color" placeholder="Color">
-                <br>
-                <label>EngineCapacity:</label>
-                <input class="w3-input w3-border" type="text" ng-model="engineCapacity" placeholder="EngineCapacity">
-                <br>
-                <label>Weight:</label>
-                <input class="w3-input w3-border" type="text" ng-model="weight" placeholder="Weight">
-                <br>
-                <label>CarType:</label>
-                <input class="w3-input w3-border" type="text" ng-model="carType" placeholder="CarType">
-                <br>
-                <label>Price:</label>
-                <input class="w3-input w3-border" type="text" ng-model="price" placeholder="Price">
-                <br>
-                <label>Photo:</label>
-                <input type="file" accept="image/*" onchange="angular.element(this).scope().uploadPhoto(this)">
-                <br>
-                <br>
-                <input class="w3-input w3-border" type="text" ng-model="key"
-                    ng-class="{'ng-valid-key': isValidKey(key)}" placeholder="Key">
-                <br>
-                <!-- <label>Password:</label>
-                <input class="w3-input w3-border" type="password" ng-model="passw1" placeholder="Password">
-                <br>
-                <label>Repeat:</label>
-                <input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password">
-                <br> -->
-                <button class="w3-btn w3-green w3-ripple" ng-click="saveCar()"
-                    ng-disabled="error || incomplete">&#10004; Save Changes</button>
-                <button class="w3-btn w3-green w3-ripple" ng-click="cancel()">&#9938; Cancel</button>
-            </form>
+            <button class="w3-btn w3-green w3-ripple" style="border-radius: 10px;" ng-click="editCar('new')">&#9998; Create New Car</button>
+            <select ng-model="selectedCar" style="border-radius: 10px;">
+                <option value="">Select a car</option>
+                <option ng-repeat="car in cars" ng-value="car">{{car.name}}</option>
+            </select>
+            <select ng-model="selectedCar" style="border-radius: 10px;" ng-options="car.price for car in cars">
+                <option value="">Select a car</option>
+            </select>
+            <div ng-if="selectedCar">
+                <h2>Selected Car Information</h2>
+                <p>Name: {{selectedCar.name}}</p>
+                <p>Year of Release: {{selectedCar.yearOfRelease}}</p>
+                <p>Color: {{selectedCar.color}}</p>
+                <p>Engine Capacity: {{selectedCar.engineCapacity}}</p>
+                <p>Weight: {{selectedCar.weight}}</p>
+                <p>Car Type: {{selectedCar.carType}}</p>
+                <p>Price: {{selectedCar.price}}</p>
+                <img ng-src="{{selectedCar.photoURL}}" alt="{{selectedCar.name}}" class="img-thumbnail" width="150">
+            </div>
+           <form ng-hide="hideform">
+            <h3 ng-show="edit">Create New Car:</h3>
+            <h3 ng-hide="edit">Edit Car:</h3>
+            <label>Name:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="name" placeholder="Name">
+            <br>
+            <label>YearOfRelease:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="yearOfRelease" placeholder="YearOfRelease">
+            <br>
+            <label>Color:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="color" placeholder="Color">
+            <br>
+            <label>EngineCapacity:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="engineCapacity" placeholder="EngineCapacity">
+            <br>
+            <label>Weight:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="weight" placeholder="Weight">
+            <br>
+            <label>CarType:</label>
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="carType" placeholder="CarType">
+            <br>
+            <label>Price:</label>
+            <input class="w3-input w3-border " style="border-radius: 10px;" type="text" ng-model="price" placeholder="Price">
+            <br>
+            <label>Photo:</label>
+            <input type="file" accept="image/*" onchange="angular.element(this).scope().uploadPhoto(this)">
+            <br>
+            <br>
+            <input class="w3-input w3-border" type="text" ng-model="key" style="border-radius: 10px;"
+                ng-class="{'ng-valid-key': isValidKey(key)}" placeholder="Key">
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-click="saveCar()" style="border-radius: 10px;"
+                ng-disabled="error || incomplete">&#10004; Save Changes</button>
+            <button class="w3-btn w3-green w3-ripple" style="border-radius: 10px;" ng-click="cancel()">&#9938; Cancel</button>
+        </form>
         </div>
         <script src="js/javascriptAngular.js"></script>
 </div>
