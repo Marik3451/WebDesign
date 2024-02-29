@@ -167,7 +167,7 @@
             <button class="w3-btn w3-green w3-ripple" style="border-radius: 10px;" ng-click="editCar('new')">&#9998; Create New Car</button>
             <select ng-model="selectedCar" style="border-radius: 10px;">
                 <option value="">Select a car</option>
-                <option ng-repeat="car in cars" ng-value="car">{{car.name}}</option>
+                <option ng-repeat="car in cars" ng-value="car">{{car.name}} {{car.yearOfRelease}}</option>
             </select>
             <select ng-model="selectedCar" style="border-radius: 10px;" ng-options="car.price for car in cars">
                 <option value="">Select a car</option>
