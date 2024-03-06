@@ -215,3 +215,25 @@ li:hover {
 input[type="checkbox"]:focus {
     outline: 2px solid #4285f4; /* Border color on focus */
 }
+
+h3 {
+    transition: transform 0.3s ease-in-out;
+}
+
+h3:hover {
+    transform: scale(1.1);
+}
+
+/* Анімація для кнопки "Відправити" */
+#submitBtn {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
