@@ -111,7 +111,6 @@ angular.module('myApp', []).controller('CarController', function ($scope) {
     $scope.showWeightTooltip = false;
     $scope.showCarTypeTooltip = false;
     $scope.showPriceTooltip = false;
-    // Додайте змінні для інших полів введення
 
     $scope.showTooltip = function(fieldName) {
         switch (fieldName) {
@@ -129,8 +128,27 @@ angular.module('myApp', []).controller('CarController', function ($scope) {
         $scope.showEngineCapacityTooltip = $scope.engineCapacity === null || $scope.engineCapacity === undefined;
         $scope.showWeightTooltip = $scope.weight === null || $scope.weight === undefined;
         $scope.showPriceTooltip = $scope.price === null || $scope.price === undefined;
-
     };
+
+
+    $scope.hideTooltip = function(fieldName) {
+        switch (fieldName) {
+            case 'name':
+                $scope.showNameTooltip = false;
+                break;
+            case 'color':
+                $scope.showColorTooltip = false;
+                break;
+            case 'carType':
+                $scope.showCarTypeTooltip = false;
+                break;
+        }
+        $scope.showYearOfReleaseTooltip = $scope.yearOfRelease === null || $scope.yearOfRelease === undefined;
+        $scope.showEngineCapacityTooltip = $scope.engineCapacity === null || $scope.engineCapacity === undefined;
+        $scope.showWeightTooltip = $scope.weight === null || $scope.weight === undefined;
+        $scope.showPriceTooltip = $scope.price === null || $scope.price === undefined;
+    }
+
 
 });
 
@@ -190,6 +208,20 @@ angular.module('MyApp', []).controller('CarRentController', function ($scope) {
         Electropaket: { checked: false, description: 'Електропакет' }
       };
 
+      $scope.clearOrder = function(){
+        $scope.selectedCompany = '';
+        $scope.selectedModel = '';
+        $scope.additionalFeatures = {
+            PidigrSidinia: { checked: false, description: 'Підігрів сидіння' },
+            TwoSezonClimatronik: { checked: false, description: 'Двухзонний кліматронік' },
+            Luk: { checked: false, description: 'Люк' },
+            SalonAlCantara: { checked: false, description: 'Салон Аль-Кантара' },
+            Electropaket: { checked: false, description: 'Електропакет' }
+          };
+          $scope.costMoney = '';
+          $scope.email = '';
+      }
+
       $scope.createOrder = function() {
         // Перевірка наявності обраної компанії
         if (!$scope.selectedCompany) {
@@ -241,5 +273,6 @@ angular.module('MyApp', []).controller('CarRentController', function ($scope) {
     $scope.toggleAppVisibility = function() {
         $scope.appVisible = !$scope.appVisible;
     };
+    
 });
 

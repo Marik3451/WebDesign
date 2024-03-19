@@ -170,7 +170,7 @@
             <h3 ng-show="edit">Create New Car:</h3>
             <h3 ng-hide="edit">Edit Car:</h3>
             <label>Name:</label>
-            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="name" placeholder="Name" ng-blur="showTooltip('name')">
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="name" placeholder="Name" ng-blur="showTooltip('name')" ng-focus="hideTooltip('name')">
             <span ng-show="showNameTooltip" class="text-danger">Поле обов'язкове</span>
             <br>
             
@@ -180,7 +180,7 @@
             <br>
             
             <label>Color:</label>
-            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="color" placeholder="Color" ng-blur="showTooltip('color')">
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="color" placeholder="Color" ng-blur="showTooltip('color')" ng-focus="hideTooltip('color')">
             <span ng-show="showColorTooltip" class="text-danger">Поле обов'язкове</span>
             <br>
             
@@ -195,7 +195,7 @@
             <br>
 
             <label>CarType:</label>
-            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="carType" placeholder="CarType" ng-blur="showTooltip('carType')">
+            <input class="w3-input w3-border" style="border-radius: 10px;" type="text" ng-model="carType" placeholder="CarType" ng-blur="showTooltip('carType')" ng-focus="hideTooltip('carType')">
             <span ng-show="showCarTypeTooltip" class="text-danger">Поле обов'язкове</span>
             <br>
             

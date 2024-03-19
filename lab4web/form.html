@@ -77,8 +77,16 @@
                         <span style="margin-right: 10px;" >Моя електронна адреса*</span>
                         <input style="border-radius: 10px;" type="email" name="email" placeholder="Введіть email" ng-model="email">
                         <div style="margin-top: 20px">
-                            <button id="submitBtn" class="btn btn-primary" ng-click="createOrder()">Відправити</button>
+                            <div class="row">
+                        <div class="col-md-2">
+                            <button id="submitBtn" class="btn btn-primary" ng-click="createOrder()" ng-disabled="!selectedCompany || !selectedModel || !costMoney || !email">Відправити</button>
                         </div>
+                        <div class="col-md-2">
+                            <button id="clearBtn" class="btn btn-primary" ng-click="clearOrder()">Очистити</button>     
+                        </div>
+                        </div>
+                    </div>
+                    </div>
                     </table>
                 </div>
             </div>
