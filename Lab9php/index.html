@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Team Search (Lab 9)</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 class="text-center mb-4">Football Team Search</h1>
+                <form id="searchForm" class="mb-4">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" name="searchInput" class="form-control" placeholder="Enter team name...">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#searchForm").submit(function (event) {
+                event.preventDefault();
+                var searchQuery = $("#searchInput").val();
+                $.ajax({
+                    type: "POST",
+                    url: "search.php",
+                    data: { query: searchQuery },
+                    dataType: "xml",
+                    success: function (response) {
+                        var searchResults = $("#searchResults");
+                        searchResults.empty();
+
+                        $(response).find('team').each(function () {
+                            var name = $(this).find('name').text();
+                            var country = $(this).find('country').text();
+                            var manager = $(this).find('manager').text();
+                            var stadium = $(this).find('stadium').text();
+
+                            var resultHtml = '<div class="list-group-item result">';
+                            resultHtml +=  name + '</h5>';
+                            resultHtml += 'Country: ' + country + '</p>';
+                            resultHtml += 'Manager: ' + manager + '</p>';
+                            resultHtml += 'Stadium: ' + stadium + '</p>';
+                            resultHtml += '</div>';
+
+                            searchResults.append(resultHtml);
+                        });
+
+                        if ($(response).find('message').length > 0) {
+                            searchResults.html('<p class="text-danger">' + $(response).find('message').text() + '</p>');
+                        }
+
+                        // Highlight search query
+                        var searchInput = $("#searchInput").val();
+                        searchResults.find(".result").each(function () {
+                            var regex = new RegExp(searchInput, 'gi');
+                            var html = $(this).html();
+                            html = html.replace(regex, '<span style="color: black;">$&</span>');
+                            $(this).html(html);
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("AJAX Error: " + status + " - " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
